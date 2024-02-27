@@ -1,18 +1,17 @@
-#include "main.h"
+#include <stdio.h>
 
-/**
-* print_numbers - Print the numbers since 0 up to 9
-* Return: The numbers since 0 up to 9
-*/
+void _putchar(char c) {
+    putchar(c);
+}
 
-void print_numbers(void)
+void print_numbers(void) {
+    char digits[] = "0123456789\n";
+    for (int i = 0; i < 11; i++) {
+        _putchar(digits[i]);
+    }
+}
 
-{
-        int x;
-
-        for (x = 0; x <= 9; x++)
-        {
-        putchar(x + '0');
-        }
-        _putchar('\n');
+int main() {
+    print_numbers();
+    return 0;
 }
