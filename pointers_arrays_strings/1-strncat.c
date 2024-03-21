@@ -1,31 +1,31 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
- * _strcat - check the code
- * @dest: pointer
- * @src: integer
+ * *_strncat -  function that concatenates two strings
+ * will use at most n bytes from src; and
+ * src does not need to be null-terminated if it contains n or more bytes
  *
- * Return: thing.
+ * @dest: string destination
+ * @src: string source
+ * @n: octet limit
+ *
+ *
+ * Return: dest
  */
-
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
-	int slen, dlen, i;
+	int a;
+	int b;
 
-	for (i = 0; *(src + i) != '\0'; i++)
+	for (a = 0; dest[a]; a++)
 	{
-		slen = i;
 	}
-	for (i = 0; *(dest + i) != '\0'; i++)
+	for (b = 0; src[b] && b < n; b++)
 	{
-		dlen = i;
+		dest[a] = src[b];
+		a++;
 	}
-	for (i = 0; i <= slen; i++)
-	{
-		*(dest + i + dlen + 1) = *(src + i);
-	}
-	*(dest + i + dlen + 1) = '\0';
+
 
 	return (dest);
 }
