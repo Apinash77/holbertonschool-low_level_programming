@@ -2,26 +2,25 @@
 #include <stdio.h>
 
 /**
- * _strcmp - compare the first letter of 2 string
- * @s1: first string
- * @s2: second string
+ * _strncpy - copy a string
+ * @dest: first string
+ * @src: second string
+ * @n: bytes copied
  *
- * Return: 0 for equal, plus for bigger than and minus for smaller than
+ * Return: pointer of resulting string dest
  */
-int _strcmp(char *s1, char *s2)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int result = 0, i;
+	int i = 0;
 
-	for (i = 0; i < s1[i]; i++)
+	for (i = 0 ; i < n && src[i] != '\0' ; i++)
 	{
-		result = s1[i] - s2[i];
-
-		if (result != 0)
-		{
-			break;
-		}
+		dest[i] = src[i];
+	}
+	for (; i < n; i++)
+	{
+		dest[i] = '\0';
 	}
 
-	return (result);
-
+	return (dest);
 }
