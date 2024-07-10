@@ -3,36 +3,27 @@
 #include <stdlib.h>
 
 /**
- * create_array - create an extensible array
- * @size: number of element of array
- * @c: element to insert in array
- * Return: (s)
+ * simple_print_buffer - prints buffer in hexa
+ * @buffer: the address of memory to print
+ * @size: the size of the memory to print
+ *
+ * Return: Nothing.
  */
+
 char *create_array(unsigned int size, char c)
 {
-	char *s;
-	unsigned int i = 0;
+	unsigned int index = 0;
+	char *array;
 
-	if (size == 0)
+	array = malloc(sizeof(char) * size);
+
+	if (array == 0 && size == 0)
 	{
 		return (NULL);
 	}
-
-	/* Alloue la mémoire à s (size par la taille d'une char) */
-	s = malloc(size * sizeof(char));
-
-	/* Vérifie si l'allocation a fonctionnée */
-	if (s == NULL)
+	for (index = 0; index < size; index++)
 	{
-		return (NULL);
+		array[index] = c;
 	}
-
-	while (i < size)
-	{
-		s[i] = c;
-		i++;
-	}
-	s[i] = '\0';
-
-	return (s);
+	return (array);
 }
