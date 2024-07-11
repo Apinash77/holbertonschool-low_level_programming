@@ -1,11 +1,13 @@
 #include "main.h"
-#include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 /**
- * main - check the code
- *
- * Return: Always 0.
+ * *str_concat - Write 'function that concatenates two strings'
+ * @s1: first string
+ * @s2: second string
+ * index_2: track in the chain
+ * Return: NULL if fail, succes if pointer to new string
  */
 
 char *str_concat(char *s1, char *s2)
