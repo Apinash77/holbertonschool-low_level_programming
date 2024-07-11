@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+#include <stddef.h>
 #include <stdlib.h>
 
 /**
@@ -10,27 +10,35 @@
  * Return: NULL if fail, succes if pointer to new string
  */
 
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-	char *string;
-	int index = 0, len = 0;
+	char *result_str;
+	int index, index_2 = 0;
+	int len = 0;
 
-	if (str == NULL)
-		return (NULL);
+	if (s1 == NULL)
+		s1 = "";
 
-	while (str[len] != '\0')
+	if (s2 == NULL)
+		s2 = "";
+
+	for (index = 0; s1[index]; index++)
+		len++;
+	for (index = 0; s2[index]; index++)
 		len++;
 
-	string = malloc(sizeof(char) * (len + 1));
+	result_str = malloc(sizeof(char) * (len + 1));
 
-	if (string == NULL)
+	if (result_str == NULL)
 		return (NULL);
 
-	for (; index <= len; index++)
-	{
-		string[index] = str[index];
-	}
-	string[index] = '\0';
+	for (index = 0; s1[index]; index++)
+		result_str[index_2++] = s1[index];
 
-	return (string);
+	for (index = 0; s2[index]; index++)
+		result_str[index_2++] = s2[index];
+
+	result_str[index_2] = '\0';
+
+	return (result_str);
 }
